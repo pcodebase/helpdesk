@@ -1,0 +1,20 @@
+<div class="card mb-2">
+  <div class="card-header d-flex justify-content-between align-items-center">
+      <b>{{ ticket.title }}</b>
+      <div>
+          <button (click)="ticket.hide = !ticket.hide" class="btn btn-primary">
+              View Details
+          </button>
+          &nbsp;&nbsp;
+          <button (click)="deleteTicket(ticket)" class="btn btn-danger">
+              Delete
+          </button>
+      </div>
+  </div>
+  <div class="card-body" [hidden]="ticket.hide">
+      <p>{{ticket.description}}</p>
+      Location: <a href="https://maps.googleapis.com/maps/api/staticmap?center={{ticket.geoLat}},{{ticket.geoLng}}&zoom=13&size=300x100&sensor=false&key=AIzaSyDxc9B2hpExUcVWaZ8M5Xp4QH8Nwc6PcX4" target="_blank">{{ticket.geoLat}}, {{ticket.geoLng}}</a><br>
+      <!--img src="https://maps.googleapis.com/maps/api/staticmap?center={{ticket.geoLat}},{{ticket.geoLng}}&zoom=13&size=300x100&sensor=false&key=AIzaSyDxc9B2hpExUcVWaZ8M5Xp4QH8Nwc6PcX4"-->
+      <img src={{ticket.photo}} height="200px" width="250px">
+  </div>
+</div>

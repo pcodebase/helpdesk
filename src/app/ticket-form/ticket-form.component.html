@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-body">
+      <div class="form-group">
+        <input type="text" placeholder="Ticket Title" #newTitle class="form-control">
+      </div>
+      <div class="form-group">
+        <textarea #newDescription cols="30" rows="10" class="form-control" placeholder="Ticket Description"></textarea>
+      </div>
+      <div class="form-group">
+        <button (click)="startVideo(camStream)" class="btn btn-info" [hidden]="showVideo">Add Snapshot</button>
+        <button (click)="takeSnapshot(hiddenCanvas, snapshot)" class="btn btn-primary" [hidden]="!showVideo">Capture</button>
+        <br>
+        <video #camStream height="200px" width="250px"></video>
+        <canvas #hiddenCanvas style="display:none"></canvas>
+        <img #snapshot [hidden]="!showSnapshot" height="200px" width="250px">
+        <div class="alert alert-danger" role="alert" [hidden]="!photoErr">
+          Your browser doesn't support camera input.
+        </div>
+        <!--a href="#" id="download-photo" download="selfie.png" title="Save Photo" class="disabled"><i class="material-icons">file_download</i></a-->
+      </div>
+      <button (click)="addTicket(newTitle, newDescription)" class="btn btn-success btn-block">Create</button>
+  </div>
+</div>
